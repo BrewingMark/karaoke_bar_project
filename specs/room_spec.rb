@@ -2,6 +2,7 @@ require('minitest/autorun')
 require('minitest/reporters')
 require_relative('../room')
 require_relative("../customer")
+require_relative("../song")
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 # A room should have a number
@@ -14,6 +15,7 @@ class TestRoom < MiniTest::Test
   def setup()
     @room = Room.new(1)
     @customer = Customer.new("James", 22, 90)
+    @song = Song.new("I want it that way", "Backstreet Boys")
   end
 
   def test_room_has_number()
@@ -43,6 +45,11 @@ class TestRoom < MiniTest::Test
     @room.check_in_customer(@customer)
     @room.check_in_customer(@customer)
     assert_equal("The room is full.", @room.check_in_customer(@customer))
+  end
+
+  def test_add_song_to_room()
+    @room.add_song(@song)
+    assert_equal(1, @room.song_queue())
   end
 
 end
