@@ -16,9 +16,9 @@ class Room
     return @songs.length
   end
 
-  def check_in_customer(customer)
+  def check_in_customer(guest)
     if occupants < 8
-      @occupants << customer
+      @occupants << guest
     else
       return "The room is full."
     end
@@ -27,5 +27,10 @@ class Room
   def add_song(song)
     @songs << song
   end
+
+  def charge_entry_fee(guest)
+    guest.wallet -= 10
+  end
+  # not working yet
 
 end

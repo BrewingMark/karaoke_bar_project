@@ -1,7 +1,7 @@
 require('minitest/autorun')
 require('minitest/reporters')
 require_relative('../room')
-require_relative("../customer")
+require_relative("../guest")
 require_relative("../song")
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
@@ -14,7 +14,7 @@ class TestRoom < MiniTest::Test
 
   def setup()
     @room = Room.new(1)
-    @customer = Customer.new("James", 22, 90)
+    @guest = Guest.new("James", 22, 90)
     @song = Song.new("I want it that way", "Backstreet Boys")
   end
 
@@ -22,7 +22,7 @@ class TestRoom < MiniTest::Test
     assert_equal(1, @room.number)
   end
 
-  def test_foom_starts_empty()
+  def test_room_starts_empty()
     assert_equal(0, @room.occupants())
   end
 
@@ -31,7 +31,7 @@ class TestRoom < MiniTest::Test
   end
 
   def test_check_a_guest_into_a_room()
-    @room.check_in_customer(@customer)
+    @room.check_in_customer(@guest)
     assert_equal(1, @room.occupants())
   end
 
@@ -50,6 +50,11 @@ class TestRoom < MiniTest::Test
   def test_add_song_to_room()
     @room.add_song(@song)
     assert_equal(1, @room.song_queue())
+  end
+
+  def test_charge_entry_fee()
+    @room.charge_entry_fee(@guest)
+    assert_equal(80, @guest.wallet)
   end
 
 end
