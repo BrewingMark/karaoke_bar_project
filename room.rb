@@ -24,6 +24,10 @@ class Room
     end
   end
 
+  def check_out_customer(guest)
+    @occupants.delete(guest)
+  end
+
   def add_song(song)
     @songs << song
   end

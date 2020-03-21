@@ -35,16 +35,22 @@ class TestRoom < MiniTest::Test
     assert_equal(1, @room.occupants())
   end
 
-  def check_in_customer_but_room_is_full()
-    @room.check_in_customer(@customer)
-    @room.check_in_customer(@customer)
-    @room.check_in_customer(@customer)
-    @room.check_in_customer(@customer)
-    @room.check_in_customer(@customer)
-    @room.check_in_customer(@customer)
-    @room.check_in_customer(@customer)
-    @room.check_in_customer(@customer)
-    assert_equal("The room is full.", @room.check_in_customer(@customer))
+  def test_check_in_customer_but_room_is_full()
+    @room.check_in_customer(@guest)
+    @room.check_in_customer(@guest)
+    @room.check_in_customer(@guest)
+    @room.check_in_customer(@guest)
+    @room.check_in_customer(@guest)
+    @room.check_in_customer(@guest)
+    @room.check_in_customer(@guest)
+    @room.check_in_customer(@guest)
+    assert_equal("The room is full.", @room.check_in_customer(@guest))
+  end
+
+  def test_check_a_guest_out_of_a_room()
+    @room.check_in_customer(@guest)
+    @room.check_out_customer(@guest)
+    assert_equal(0, @room.occupants())
   end
 
   def test_add_song_to_room()
@@ -52,9 +58,9 @@ class TestRoom < MiniTest::Test
     assert_equal(1, @room.song_queue())
   end
 
-  def test_charge_entry_fee()
-    @room.charge_entry_fee(@guest)
-    assert_equal(80, @guest.wallet)
-  end
+  # def test_charge_entry_fee()
+  #   @room.charge_entry_fee(@guest)
+  #   assert_equal(80, @guest.wallet)
+  # end
 
 end
