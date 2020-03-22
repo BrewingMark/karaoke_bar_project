@@ -34,9 +34,5 @@ class Room < KaraokeBar
     @songs << song
   end
 
-  # def charge_entry_fee(guest)
-  #
-  # end
-  # not working yet
-
+  
 end

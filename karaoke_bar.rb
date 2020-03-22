@@ -12,4 +12,8 @@ class KaraokeBar
     return @drinks.length
   end
 
+  def receive_payment(value)
+    @cash += value
+  end
+
 end
