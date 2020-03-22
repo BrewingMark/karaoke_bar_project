@@ -8,4 +8,8 @@ class Guest
     @wallet = wallet
   end
 
+  def make_payment(value)
+    @wallet -= value
+  end
+
 end

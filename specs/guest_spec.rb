@@ -26,6 +26,13 @@ class TestCustomer < MiniTest::Test
     assert_equal(100, @customer5.wallet)
   end
 
+  # A guest should be able to pay the bar money
+
+  def test_make_payment()
+    @customer4.make_payment(10)
+    assert_equal(190, @customer4.wallet)
+  end
+
   # def test_guest_has_favorite_song()
   #   assert_equal("The Modern Leper", @customer1.favorite_song())
   # end

@@ -1,4 +1,6 @@
-class Room
+require_relative("karaoke_bar")
+
+class Room < KaraokeBar
 
   attr_reader :number
 
@@ -33,7 +35,7 @@ class Room
   end
 
   def charge_entry_fee(guest)
-    guest.wallet -= 10
+
   end
   # not working yet
 
