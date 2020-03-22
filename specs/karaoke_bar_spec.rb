@@ -38,11 +38,11 @@ class TestKaraoke_bar < MiniTest::Test
     assert_equal(2010, @karaoke_bar.cash)
   end
 
-  # def test_charge_entry_fee()
-  #   @guest.charge_entry_fee()
-  #   assert_equal(2010, @karaoke_bar.cash)
-  #   assert_equal(80, @guest.wallet)
-  # end
+  def test_charge_entry_fee()
+    @karaoke_bar.charge_entry_fee(@guest)
+    assert_equal(2010, @karaoke_bar.cash)
+    assert_equal(80, @guest.wallet)
+  end
 
 
 end

@@ -16,4 +16,9 @@ class KaraokeBar
     @cash += value
   end
 
+  def charge_entry_fee(guest)
+    guest.make_payment(10)
+    receive_payment(10)
+  end
+
 end
