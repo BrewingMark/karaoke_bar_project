@@ -34,5 +34,4 @@ class Room < KaraokeBar
     @songs << song
   end
 
-  
 end

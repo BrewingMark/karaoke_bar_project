@@ -44,5 +44,6 @@ class TestKaraoke_bar < MiniTest::Test
     assert_equal(80, @guest.wallet)
   end
 
+  # still to work on - selling drinks to guests
 
 end

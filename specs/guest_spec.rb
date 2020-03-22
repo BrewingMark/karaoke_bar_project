@@ -33,6 +33,9 @@ class TestCustomer < MiniTest::Test
     assert_equal(190, @customer4.wallet)
   end
 
+  # Still to work on - Guests having fav song and reacting to
+  # it if it's in a rooms playlist.
+
   # def test_guest_has_favorite_song()
   #   assert_equal("The Modern Leper", @customer1.favorite_song())
   # end

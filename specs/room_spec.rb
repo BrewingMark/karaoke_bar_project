@@ -8,7 +8,7 @@ Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 # A room should have a number
 # A room should have an array of customers that starts empty
 # A room should have a song list, that starts empty?
-#  A room should have a capacity
+# A room should have a capacity
 
 class TestRoom < MiniTest::Test
 
@@ -58,9 +58,6 @@ class TestRoom < MiniTest::Test
     assert_equal(1, @room.song_queue())
   end
 
-  # def test_charge_entry_fee()
-  #   @room.charge_entry_fee(@guest)
-  #   assert_equal(80, @guest.wallet)
-  # end
+  # test a room has inherited from the karaoke bar.
 
 end
